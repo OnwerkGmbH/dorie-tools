@@ -3,13 +3,14 @@
 Provides a set of bash shell scripts to help include Docker in Continuous Integration and Deployment
 
 Usual workflow:
+
 1. Use `DockerBuild.sh` to create a docker image during a Jenkins Build Job, tag it accordingly and push it to a docker registry
-2. For automatic deployment of the newly created docker image use `DockerPullRun.sh` during a Jenkins Build Job to servers with access to the docker registry 
- This script copies various deployment items to the server (items for all servers and items for the specific server). 
+2. For automatic deployment of the newly created docker image use `DockerPullRun.sh` during a Jenkins Build Job to servers with access to the docker registry  
+ This script copies various deployment items to the server (items for all servers and items for the specific server).  
  After the copying the newly created docker image will be pulled from Docker Registry and started by using `docker compose`
-3. For automatic deployment to servers without access to the docker registry the newly created image must be archived and transferred to the server.
+3. For automatic deployment to servers without access to the docker registry the newly created image must be archived and transferred to the server.  
  Use `DockerPackImage.sh` to archive the docker image to an archive file, then use `DockerTransferPacked.sh` to transfer the archive to the server, extract it there and reload it into docker on the server. 
-4. If no password-less SSH login can be used, transfer the archive file manually to the server and use 'DockerLoadFromArchive.sh' to extract it and load it into docker.
+4. If no password-less SSH login can be used, transfer the archive file manually to the server and use 'DockerLoadFromArchive.sh' to extract it and load it into docker.  
  In that case all deployment-items must be manually copied to the server
  
 ## DockerBuild.sh
