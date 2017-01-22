@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+prefix=""
+registry="hanswurst71273"
+ssh_login=""
+profile=""
+
