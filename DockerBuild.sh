@@ -156,10 +156,18 @@ then
 else
     build="build$BUILD_NUMBER"
     date=`date +%Y%m%d`
+
+    # Bash String manipulation
+    # Substring Replacement
+    # http://tldp.org/LDP/abs/html/string-manipulation.html
     # replace / with -
-    branchName=${branchName//"/"/"-"}
+    branchName=${branchName/"/"/"-"}
     # replace _ with -
-    branchName=${branchName//"_"/"-"}
+    branchName=${branchName/"_"/"-"}
+    # replace # with -
+    branchName=${branchName/"#"/"-"}
+
+    branchName=${branchName/"--"/"-"}
 
     buildversion_tag="$date"_"$build"
 
